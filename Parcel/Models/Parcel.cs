@@ -5,6 +5,10 @@ namespace FubexParcel.Models
   public class Parcel
   {
     private static List<Parcel> _instances = new List<Parcel> { };
+    public string Name { get; set; }
+    public string Street { get; set; }
+    public string City { get; set; }
+    public string State { get; set; }
     public int Length { get; set; }
     public int Width { get; set; }
     public int Height { get; set; }
@@ -13,15 +17,18 @@ namespace FubexParcel.Models
     public int Cost { get; set; }
 
 
-    public Parcel(int length, int width, int height, int weight)
+    public Parcel(string name, string street, string city, string state, int length, int width, int height, int weight)
     {
+      Name = name;
+      Street = street;
+      City = city;
+      State = state;
       Length = length;
       Width = width;
       Height = height;
       Weight = weight;
       Volume = GetVolume();
       Cost = CostToShip();
-
       _instances.Add(this);
     }
 
@@ -32,7 +39,8 @@ namespace FubexParcel.Models
 
     public int CostToShip()
     {
-      return 666;
+      int cost = Volume + 2;
+      return cost;
     }
 
     public static List<Parcel> GetAll()

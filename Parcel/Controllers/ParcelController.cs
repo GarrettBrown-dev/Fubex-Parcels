@@ -6,23 +6,23 @@ namespace FubexParcel.Controllers
 {
   public class ParcelsController : Controller
   {
-    [HttpGet("/parcel")]
+    [HttpGet("/parcels")]
     public ActionResult Index()
     {
-      List<Parcel> allParcels = Parcel.GetAll();
-      return View(allParcels);
+      List<Parcel> allParcel = Parcel.GetAll();
+      return View(allParcel);
     }
 
-    [HttpGet("/parcel/new")]
+    [HttpGet("/parcels/new")]
     public ActionResult CreateForm()
     {
       return View();
     }
 
-    [HttpPost("/parcel")]
-    public ActionResult Create(int length, int width, int height, int weight)
+    [HttpPost("/parcels")]
+    public ActionResult Create(string name, string street, string city, string state, int length, int width, int height, int weight)
     {
-      Parcel myParcel = new Parcel(length, width, height, weight);
+      Parcel myParcel = new Parcel(name, street, city, state, length, width, height, weight);
       return RedirectToAction("Index");
     }
   }
