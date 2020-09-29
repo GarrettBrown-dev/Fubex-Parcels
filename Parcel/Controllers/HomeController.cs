@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Parcel.Controllers
+namespace FubexParcel.Controllers
 {
   public class HomeController : Controller
   {

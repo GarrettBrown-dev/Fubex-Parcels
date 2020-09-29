@@ -1,28 +1,28 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using FubexParcel.Models;
 using System.Collections.Generic;
 
-namespace Parcel.Controllers
+namespace FubexParcel.Controllers
 {
   public class ParcelsController : Controller
   {
-    [HttpGet("/parcels")]
+    [HttpGet("/parcel")]
     public ActionResult Index()
     {
       List<Parcel> allParcels = Parcel.GetAll();
       return View(allParcels);
     }
 
-    [HttpGet("/parcels/new")]
-    public ActionResult CreatForm()
+    [HttpGet("/parcel/new")]
+    public ActionResult CreateForm()
     {
       return View();
     }
 
     [HttpPost("/parcel")]
-    public ActionResult Create(int legnth, int width, int height, int weight)
+    public ActionResult Create(int length, int width, int height, int weight)
     {
-      Parcel myParcel = new Parcel(legnth, width, height, weight);
+      Parcel myParcel = new Parcel(length, width, height, weight);
       return RedirectToAction("Index");
     }
   }
