@@ -1,5 +1,12 @@
+@using (Html.BeginForm())
+{@using FubexParcel.Models};
+@model Parcel;
+
 <form action="/parcels" method="post">
   <p>Reciepiant:</p>
+  @Html.ValidationSummary(true)
+  <p>@Html.ValidationMessageFor(x => x.Name)</p>
+  <p>Name: @Html.EditorFor(m => m.Name)</p>
   <label for="name">Name:</label>
   <input id="name" name="name" type="text">
   <label for="street">Street:</label>
